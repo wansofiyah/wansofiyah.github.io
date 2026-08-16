@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wan Sofiyah - AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F8F4;
+    --surface:#FFFFFF;
+    --ink:#131C16;
+    --soft:#5B6A5F;
+    --line:#DEE5DA;
+    --accent:#2F8F4E;
+    --accent-ink:#1F5E34;
+    --warn:#D98C2B;
+    --chip-dark:#0F1712;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    background-position:-1px -1px;
+  }
+  ::selection{background:var(--accent); color:#fff;}
+  a{color:inherit; text-decoration:none;}
+  .display{font-family:'Space Grotesk', sans-serif;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  .wrap{max-width:900px; margin:0 auto; padding:0 28px;}
+  @media (max-width:600px){ .wrap{padding:0 20px;} }
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,248,244,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .navrow{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .logo{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.02rem; display:flex; align-items:center; gap:8px;}
+  .logo .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); display:inline-block;}
+  .navlinks{display:flex; gap:28px; font-size:0.86rem; color:var(--soft);}
+  .navlinks a{padding-bottom:2px; border-bottom:1px solid transparent;}
+  .navlinks a:hover{color:var(--ink); border-color:var(--accent);}
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{padding:74px 0 54px;}
+  .frame{
+    position:relative;
+    border:1.5px solid var(--ink);
+    padding:40px 32px 36px;
+    background:var(--surface);
+  }
+  .frame::before, .frame::after,
+  .frame .c2::before, .frame .c2::after{
+    content:''; position:absolute; width:16px; height:16px;
+    border:2px solid var(--accent);
+  }
+  .frame::before{ top:-2px; left:-2px; border-right:none; border-bottom:none; }
+  .frame::after{ top:-2px; right:-2px; border-left:none; border-bottom:none; }
+  .frame .c2::before{ bottom:-2px; left:-2px; border-right:none; border-top:none; }
+  .frame .c2::after{ bottom:-2px; right:-2px; border-left:none; border-top:none; }
+
+  .tag-float{
+    position:absolute; top:-11px; left:28px;
+    background:var(--chip-dark); color:#fff;
+    font-size:0.72rem; padding:4px 10px; letter-spacing:0.02em;
+  }
+  .tag-float .k{color:#8fd9a6;}
+  .tag-float-r{
+    position:absolute; bottom:-11px; right:28px;
+    background:var(--chip-dark); color:#fff;
+    font-size:0.72rem; padding:4px 10px; letter-spacing:0.02em;
+  }
+  .tag-float-r .k{color:#8fd9a6;}
+
+  .eyebrow{font-size:0.8rem; color:var(--accent-ink); font-weight:600; margin-bottom:14px; letter-spacing:0.02em;}
+  h1{
+    font-family:'Space Grotesk', sans-serif; font-weight:600;
+    font-size:clamp(2rem, 4.4vw, 2.9rem);
+    line-height:1.16; letter-spacing:-0.01em;
+    margin-bottom:18px; max-width:640px;
+  }
+  h1 .hl{color:var(--accent-ink);}
+  .hero p.lead{max-width:560px; font-size:1.02rem; color:var(--soft); margin-bottom:26px;}
+  .ctas{display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    font-size:0.88rem; font-weight:600; padding:12px 22px;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:opacity .15s ease, transform .15s ease;
+    border:1.5px solid var(--ink);
+  }
+  .btn-primary{background:var(--ink); color:#fff;}
+  .btn-primary:hover{opacity:0.85;}
+  .btn-ghost{color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--accent); color:var(--accent-ink);}
+
+  .stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+    margin-top:44px; padding-top:28px; border-top:1px dashed var(--line);
+  }
+  @media (max-width:640px){ .stats{grid-template-columns:repeat(2,1fr); gap:26px;} }
+  .stat .n{font-family:'Space Grotesk', sans-serif; font-size:1.65rem; font-weight:700; color:var(--accent-ink);}
+  .stat .l{font-size:0.78rem; color:var(--soft); margin-top:4px;}
+
+  /* ---------- sections ---------- */
+  section{padding:52px 0;}
+  .section-head{margin-bottom:30px; display:flex; align-items:baseline; gap:12px;}
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem; color:#fff; background:var(--chip-dark);
+    padding:3px 8px; white-space:nowrap;
+  }
+  .section-head h2{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.4rem;}
+
+  .about-grid{display:grid; grid-template-columns:1.25fr 1fr; gap:44px;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-grid p{margin-bottom:15px; color:var(--soft);}
+
+  .skillbox{border:1px solid var(--line); background:var(--surface); padding:22px;}
+  .skillbox h3{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent-ink); margin-bottom:12px; font-weight:600;}
+  .skillbox + .skillbox{margin-top:16px;}
+  .skill-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag-pill{background:var(--bg); border:1px solid var(--line); padding:5px 12px; font-size:0.8rem; color:var(--ink); font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- projects ---------- */
+  .proj{
+    position:relative; padding:26px 24px; margin-bottom:22px;
+    border:1px solid var(--line); background:var(--surface);
+  }
+  .proj::before, .proj::after{
+    content:''; position:absolute; width:12px; height:12px;
+    border:2px solid var(--ink); opacity:0.35;
+  }
+  .proj::before{ top:-1px; left:-1px; border-right:none; border-bottom:none; }
+  .proj::after{ bottom:-1px; right:-1px; border-left:none; border-top:none; }
+  .proj-top{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:6px;}
+  .proj h3{font-family:'Space Grotesk', sans-serif; font-size:1.12rem; font-weight:600;}
+  .proj .metric{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:#fff;
+    background:var(--accent-ink); padding:3px 9px; white-space:nowrap;
+  }
+  .proj .meta{font-size:0.8rem; color:var(--soft); margin-bottom:12px;}
+  .proj p{color:var(--soft); margin-bottom:14px; max-width:640px;}
+  .chips{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px;}
+  .chip{font-family:'IBM Plex Mono', monospace; font-size:0.74rem; border:1px solid var(--line); padding:3px 10px; color:var(--soft);}
+
+  .proj-links{display:flex; gap:16px; flex-wrap:wrap;}
+  .proj-link{
+    font-size:0.85rem; color:var(--accent-ink); font-weight:600;
+    display:inline-flex; align-items:center; gap:5px;
+    border-bottom:1px solid transparent;
+  }
+  .proj-link:hover{border-bottom-color:var(--accent-ink);}
+
+  .proj-shot{
+    position:relative; margin-top:4px;
+    border:1.5px dashed var(--line);
+    background:var(--bg);
+    min-height:170px;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .proj-shot img{display:block; width:100%; height:100%; object-fit:cover;}
+  .proj-shot .placeholder{
+    text-align:center; padding:22px; color:var(--soft);
+  }
+  .proj-shot .placeholder .icon{font-size:1.3rem; margin-bottom:6px; display:block;}
+  .proj-shot .placeholder .label{font-family:'IBM Plex Mono', monospace; font-size:0.74rem; color:var(--accent-ink);}
+  .proj-shot .placeholder .sub{font-size:0.78rem; margin-top:4px;}
+  .proj-shot .corner{
+    position:absolute; width:10px; height:10px; border:2px solid var(--accent); opacity:0.5;
+  }
+  .proj-shot .corner.tl{ top:6px; left:6px; border-right:none; border-bottom:none; }
+  .proj-shot .corner.br{ bottom:6px; right:6px; border-left:none; border-top:none; }
+
+  .proj-gallery{
+    display:grid; grid-template-columns:1.1fr 1fr; gap:10px;
+    margin-top:4px;
+  }
+  @media (max-width:560px){ .proj-gallery{grid-template-columns:1fr;} }
+  .proj-gallery .proj-shot{ margin-top:0; min-height:0; height:210px; }
+  .proj-gallery .proj-shot img{ height:100%; }
+  .proj-gallery figcaption{
+    font-size:0.74rem; color:var(--soft);
+    margin-top:6px;
+  }
+  .proj-gallery figure{margin:0;}
+
+  /* ---------- experience ---------- */
+  .exp-item{display:grid; grid-template-columns:150px 1fr; gap:24px; padding:24px 0; border-bottom:1px dashed var(--line);}
+  @media (max-width:600px){ .exp-item{grid-template-columns:1fr; gap:6px;} }
+  .exp-item .when{font-size:0.85rem; color:var(--soft); padding-top:3px;}
+  .exp-item h3{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.06rem;}
+  .exp-item .org{color:var(--accent-ink); font-weight:600; font-size:0.88rem; margin-bottom:10px;}
+  .exp-item ul{padding-left:18px; color:var(--soft); font-size:0.92rem; display:flex; flex-direction:column; gap:6px;}
+
+  /* ---------- education ---------- */
+  .edu-card{
+    display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap;
+    padding:16px 0; border-bottom:1px dashed var(--line);
+  }
+  .edu-card:last-child{border-bottom:none;}
+  .edu-card h3{font-family:'Space Grotesk', sans-serif; font-size:1rem; font-weight:600;}
+  .edu-card .org{color:var(--soft); font-size:0.87rem; margin-top:2px;}
+  .edu-card .right{font-size:0.83rem; color:var(--soft); text-align:right; white-space:nowrap;}
+  .edu-card .right .badge{color:var(--accent-ink); font-weight:600;}
+  .subheading{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem; text-transform:uppercase; letter-spacing:0.05em;
+    color:var(--soft); font-weight:600; margin:30px 0 4px;
+  }
+  .subheading:first-of-type{margin-top:0;}
+  .cert-link{
+    display:inline-flex; align-items:center; gap:4px;
+    font-size:0.78rem; color:var(--accent-ink); font-weight:600;
+    margin-top:4px; border-bottom:1px solid transparent;
+  }
+  .cert-link:hover{border-bottom-color:var(--accent-ink);}
+
+  /* ---------- footer ---------- */
+  footer{padding:48px 0 60px; border-top:1px solid var(--line); margin-top:16px;}
+  footer .frame{padding:36px 32px;}
+  footer h2{font-family:'Space Grotesk', sans-serif; font-size:1.5rem; font-weight:600; margin-bottom:14px;}
+  .foot-links{display:flex; gap:20px; flex-wrap:wrap; font-size:0.88rem;}
+  .foot-links a{border-bottom:1px solid var(--line); font-size:0.88rem;}
+  .foot-links a:hover{border-color:var(--accent); color:var(--accent-ink);}
+  .copyright{margin-top:32px; font-size:0.78rem; color:var(--soft);}
+
+  .reveal{opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease;}
+  .reveal.in{opacity:1; transform:none;}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} }
+
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap navrow">
+    <div class="logo"><span class="dot"></span>wan sofiyah</div>
+    <nav class="navlinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="frame reveal">
+      <div class="c2"></div>
+      <span class="tag-float mono">class: <span class="k">ai_engineer</span></span>
+      <span class="tag-float-r mono">conf: <span class="k">0.98</span></span>
+
+      <div class="eyebrow">Open to AI Engineer opportunities</div>
+      <h1>I build the models that <span class="hl">see the fruit, read the document,<br>and grade the harvest</span>.</h1>
+      <p class="lead">
+        I'm Wan Sofiyah, an AI Engineer intern working on computer vision and LLM systems for palm
+        oil operations, from detecting palm trees on drone orthophotos to grading ripeness on-device
+        and structuring data from scanned weighbridge documents.
+      </p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#projects">View Projects →</a>
+        <a class="btn btn-ghost" href="https://github.com/wansfiyyah" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="mailto:wansofiyah233@gmail.com">Get in Touch</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="n display">97.4%</div><div class="l">palm tree detection accuracy</div></div>
+        <div class="stat"><div class="n display">94%</div><div class="l">recall, FFB ripeness grading</div></div>
+        <div class="stat"><div class="n display">90%</div><div class="l">SLA reduction, CV pipeline</div></div>
+        <div class="stat"><div class="n display">96.3%</div><div class="l">accuracy, lung disease CNN</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="tag mono">01</span><h2>About</h2></div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>I work at the intersection of computer vision, LLMs, and mobile/edge deployment, taking a
+          model from a training notebook to something that runs reliably in a plantation with patchy
+          internet, or a document pipeline that has to work on messy, real-world scans. At SawitPRO,
+          I develop CV and geospatial features on top of drone orthophoto data, build LLM-based
+          document extraction workflows, and prototype Android apps that put those models in the
+          hands of field teams.</p>
+        <p>Earlier, at PTPN IV, I coordinated data collection for a heavy equipment inventory system
+          across 13 plantation units. I care about shipping models that are honestly evaluated and
+          genuinely useful in the field, not just accurate on paper, and about explaining what a
+          model did and why, whether that's a Grad-CAM heatmap or a plain-language note for a
+          non-technical stakeholder.</p>
+      </div>
+      <div>
+        <div class="skillbox reveal">
+          <h3>ML / AI</h3>
+          <div class="skill-tags">
+            <span class="tag-pill">CNN</span>
+            <span class="tag-pill">ANN</span>
+            <span class="tag-pill">NLP</span>
+            <span class="tag-pill">LLM</span>
+            <span class="tag-pill">RAG</span>
+            <span class="tag-pill">A/B Testing</span>
+            <span class="tag-pill">GIS</span>
+            <span class="tag-pill">Remote Sensing</span>
+            <span class="tag-pill">QGIS</span>
+          </div>
+        </div>
+        <div class="skillbox reveal">
+          <h3>Stack</h3>
+          <div class="skill-tags">
+            <span class="tag-pill">Python</span>
+            <span class="tag-pill">TensorFlow</span>
+            <span class="tag-pill">Keras</span>
+            <span class="tag-pill">Scikit-learn</span>
+            <span class="tag-pill">Pandas / NumPy</span>
+            <span class="tag-pill">MySQL</span>
+          </div>
+        </div>
+        <div class="skillbox reveal">
+          <h3>Reporting &amp; Tools</h3>
+          <div class="skill-tags">
+            <span class="tag-pill">Tableau</span>
+            <span class="tag-pill">Power BI</span>
+            <span class="tag-pill">Excel</span>
+            <span class="tag-pill">PRD Writing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="tag mono">02</span><h2>Projects</h2></div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <h3>Sawit Vision: Palm Tree Detection &amp; Analytics</h3>
+        <span class="metric">acc 97.4%</span>
+      </div>
+      <div class="meta">Computer Vision · SawitPRO, Dec 2025 - Present</div>
+      <p>Engineered a palm tree detection pipeline with tiled inference on high-resolution drone
+        orthophotos, then extended the core detector into 5 downstream analytics features for
+        plantation monitoring.</p>
+      <div class="chips">
+        <span class="chip">Computer Vision</span><span class="chip">GIS</span>
+        <span class="chip">Remote Sensing</span><span class="chip">Machine Learning</span>
+        <span class="chip">QGIS</span><span class="chip">UAV</span>
+      </div>
+      <div class="proj-gallery">
+        <figure>
+          <div class="proj-shot">
+            <span class="corner tl"></span><span class="corner br"></span>
+            <img src="images/sawit-vision-detection.png" alt="Palm tree detection overlay on drone orthophoto">
+          </div>
+          <figcaption>detection overlay on drone orthophoto</figcaption>
+        </figure>
+        <figure>
+          <div class="proj-shot">
+            <span class="corner tl"></span><span class="corner br"></span>
+            <img src="images/sawit-vision-app.png" alt="Sawit Vision desktop app interface">
+          </div>
+          <figcaption>desktop app interface</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <h3>FFB Grader: Automated Ripeness Classification</h3>
+        <span class="metric">recall 94%</span>
+      </div>
+      <div class="meta">Mobile + Edge AI · Android, Kotlin</div>
+      <p>Built an offline-first Android app for automated FFB ripeness grading, enabling field-based
+        capture and NFC peer-to-peer data transfer without internet connectivity, including on-device
+        model format trade-offs (TFLite vs. PTL) and quantization.</p>
+      <div class="chips">
+        <span class="chip">Android Development</span><span class="chip">Kotlin</span>
+        <span class="chip">NFC</span>
+      </div>
+      <div class="proj-shot" style="height:210px; background:var(--chip-dark);">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <img src="images/ffb-grader-result.jpg" alt="FFB Grader detection result with bounding boxes and confidence scores per bunch" style="object-fit:contain;">
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <h3>Dokter Sawit: AI Chatbot for Palm Disease Detection</h3>
+        <span class="metric">LLM + RAG</span>
+      </div>
+      <div class="meta">LLM / RAG · SawitPRO</div>
+      <p>Designed the image-alert pipeline supporting an LLM+RAG-based disease diagnosis chatbot, and
+        contributed to its web and Android companion apps used by agronomists in the field.</p>
+      <div class="chips">
+        <span class="chip">Chatbot</span><span class="chip">LLM + RAG</span>
+      </div>
+      <div class="proj-shot" style="height:210px; background:var(--chip-dark);">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <img src="images/dokter-sawit-chatbot.png" alt="Dokter Sawit chatbot widget on the SawitPRO website" style="object-fit:contain;">
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <h3>Marketing Campaign Effectiveness: A/B Testing</h3>
+        <span class="metric">stat. sig.</span>
+      </div>
+      <div class="meta">Statistical Analysis</div>
+      <p>Analyzed marketing campaign performance using ANOVA and Bonferroni-corrected t-tests to
+        identify the top-performing strategy for a new product launch.</p>
+      <div class="chips">
+        <span class="chip">ANOVA</span><span class="chip">A/B Testing</span>
+        <span class="chip">Excel</span>
+      </div>
+      <div class="proj-shot" style="height:210px; background:var(--chip-dark);">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <img src="images/ab-test-insight.png" alt="Business insight and recommendation slide from the A/B test" style="object-fit:contain;">
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-top">
+        <h3>Lung Disease Detection: Undergraduate Thesis</h3>
+        <span class="metric">acc 96.3%</span>
+      </div>
+      <div class="meta">Explainable AI · UIN Sultan Syarif Kasim Riau</div>
+      <p>Implemented a CNN to detect and classify lung disease from chest imaging, with Grad-CAM
+        heatmap visualization to support medical decision explanation.</p>
+      <div class="chips">
+        <span class="chip">Explainable AI</span><span class="chip">CNN</span>
+      </div>
+      <div class="proj-shot" style="height:210px; background:var(--chip-dark);">
+        <span class="corner tl"></span><span class="corner br"></span>
+        <img src="images/thesis-paper.png" alt="Published paper: Lung Disease Detection Using Gradient-Weighted Class Activation Mapping, Journal of Artificial Intelligence and Software Engineering" style="object-fit:contain;">
+      </div>
+      <div class="proj-links" style="margin-top:14px;">
+        <a class="proj-link" href="https://doi.org/10.30811/jaise.v5i2.7041" target="_blank" rel="noopener">Read the Paper →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="tag mono">03</span><h2>Experience</h2></div>
+
+    <div class="exp-item reveal">
+      <div class="when">Dec 2025 - Present<br>Pekanbaru, Indonesia</div>
+      <div>
+        <h3>AI Engineer Intern</h3>
+        <div class="org">SawitPRO</div>
+        <ul>
+          <li>Developed an automated computer-vision-based palm tree detector, reducing SLA by 90%
+            and cost of mandays by 36%</li>
+          <li>Extended the core detector into 5 downstream analytics features for plantation monitoring</li>
+          <li>Built LLM-based prompt workflows for extracting and classifying data from weighbridge
+            documents</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="when">Mar 2024 - May 2024<br>Pekanbaru, Indonesia</div>
+      <div>
+        <h3>Technical Administrative Intern</h3>
+        <div class="org">PT Perkebunan Nusantara IV</div>
+        <ul>
+          <li>Supported a centralized inventory monitoring system by coordinating data collection
+            across 13 plantation units</li>
+          <li>Cleaned records prior to system input</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="tag mono">04</span><h2>Education &amp; Certifications</h2></div>
+
+    <div class="subheading reveal">Education</div>
+    <div class="edu-card reveal">
+      <div>
+        <h3>Bachelor's Degree, Informatics Engineering</h3>
+        <div class="org">UIN Sultan Syarif Kasim Riau, Pekanbaru, Indonesia</div>
+        <div class="org">Secretary, HIMATIF 2022/2023</div>
+      </div>
+      <div class="right">2021 - 2025<br><span class="badge">GPA 3.46 / 4.00</span></div>
+    </div>
+
+    <div class="subheading reveal">Certifications</div>
+    <div class="edu-card reveal">
+      <div>
+        <h3>Data Analytics Job Simulation</h3>
+        <div class="org">Deloitte</div>
+        <a class="cert-link" href="https://drive.google.com/file/d/1LHI_tQU0kW961MVxvXxREdvkMyTWxRvo/view?usp=sharing" target="_blank" rel="noopener">View Certificate →</a>
+      </div>
+      <div class="right">2026</div>
+    </div>
+    <div class="edu-card reveal">
+      <div>
+        <h3>SQL (Intermediate)</h3>
+        <div class="org">HackerRank</div>
+        <a class="cert-link" href="https://drive.google.com/file/d/1F9GYskRAkqSMziZfrDS7rzLPIlKMKcJz/view?usp=sharing" target="_blank" rel="noopener">View Certificate →</a>
+      </div>
+      <div class="right">2026</div>
+    </div>
+    <div class="edu-card reveal">
+      <div>
+        <h3>Data Analytics</h3>
+        <div class="org">SimpliLearn</div>
+        <a class="cert-link" href="https://drive.google.com/file/d/1xIqqDWof1OeEuw3IqEAalvX-vwuHkffS/view?usp=sharing" target="_blank" rel="noopener">View Certificate →</a>
+      </div>
+      <div class="right">2026</div>
+    </div>
+    <div class="edu-card reveal">
+      <div>
+        <h3>Google Cloud Skills Boost</h3>
+        <div class="org">Google Cloud</div>
+        <a class="cert-link" href="https://www.skills.google/public_profiles/317c4f31-6e84-4cb8-9a90-cfc415d62222" target="_blank" rel="noopener">View Certificate →</a>
+      </div>
+      <div class="right">2024</div>
+    </div>
+    <div class="edu-card reveal">
+      <div>
+        <h3>Python Programming</h3>
+        <div class="org">SoloLearn</div>
+        <a class="cert-link" href="https://drive.google.com/file/d/1Z5L6HCEdrPEO0lXh0nKXdWkn914m8kDh/view?usp=sharing" target="_blank" rel="noopener">View Certificate →</a>
+      </div>
+      <div class="right">2024</div>
+    </div>
+    <div class="edu-card reveal">
+      <div>
+        <h3>Database Programming with PL/SQL</h3>
+        <div class="org">Oracle</div>
+        <a class="cert-link" href="https://drive.google.com/file/d/1wG5vahLeOTk0maZxKKW3aNMWFxG9EFGC/view?usp=sharing" target="_blank" rel="noopener">View Certificate →</a>
+      </div>
+      <div class="right">2023</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="frame reveal">
+      <div class="c2"></div>
+      <h2>Let's build something.</h2>
+      <div class="foot-links">
+        <a href="mailto:wansofiyah233@gmail.com">wansofiyah233@gmail.com</a>
+        <a href="https://www.linkedin.com/in/wan-sofiyah" target="_blank">LinkedIn</a>
+        <a href="https://github.com/wansfiyyah" target="_blank">GitHub</a>
+        <a href="tel:+6289639500789">+62 896 3950 0789</a>
+      </div>
+      <div class="copyright">© 2026 Wan Sofiyah · Pekanbaru, Indonesia</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.1});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
