@@ -149,19 +149,6 @@ section{padding:52px 0;}
 .chips{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px; list-style:none;}
 .chip{font-family:'IBM Plex Mono', monospace; font-size:0.74rem; border:1px solid var(--line); padding:3px 10px; color:var(--soft);}
 
-.proj-fields{
-  display:grid; grid-template-columns:1fr 1fr; gap:14px 24px;
-  margin:16px 0; padding:16px; background:var(--bg); border:1px dashed var(--line);
-}
-@media (max-width:560px){ .proj-fields{grid-template-columns:1fr;} }
-.proj-field{font-size:0.86rem; color:var(--soft);}
-.proj-field .field-label{
-  display:block; font-family:'IBM Plex Mono', monospace; font-size:0.68rem;
-  text-transform:uppercase; letter-spacing:0.05em; color:var(--accent-ink);
-  margin-bottom:3px;
-}
-.proj-field.span-2{grid-column:1 / -1;}
-
 .proj-links{display:flex; gap:16px; flex-wrap:wrap; margin-top:14px;}
 .proj-link{
   font-size:0.85rem; color:var(--accent-ink); font-weight:600;
