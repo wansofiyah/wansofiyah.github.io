@@ -13,7 +13,7 @@
 
 <header class="nav">
   <div class="wrap navrow">
-    <div class="logo"><span class="dot"></span>wan sofiyah</div>
+    <div class="logo">wan sofiyah<span>.</span></div>
     <nav class="navlinks" aria-label="Primary">
       <ul>
         <li><a href="#about">About</a></li>
@@ -28,25 +28,25 @@
 <main>
 <section class="hero">
   <div class="wrap">
-    <div class="frame reveal">
-      <div class="c2"></div>
-      <span class="tag-float mono">class: <span class="k">ai_engineer</span></span>
-      <span class="tag-float-r mono">conf: <span class="k">0.98</span></span>
+    <div class="reveal">
+      <div class="hero-top">
+        <div class="avatar">WS</div>
+        <div>
+          <h1>Wan Sofiyah</h1>
+          <div class="role-line">AI Engineer <span class="accent">·</span> Computer Vision, LLMs &amp; Applied ML</div>
+        </div>
+      </div>
 
-      <div class="eyebrow">AI Engineer · Computer Vision, LLMs &amp; Applied ML</div>
-      <h1>I got curious about how machines could <span class="hl">read an X-ray, then kept
-        chasing that same question</span> into plantations and paperwork.</h1>
-      <p class="lead">
-        I'm Wan Sofiyah. It started with an undergrad thesis on lung disease detection, and it's
-        carried into building computer vision, LLM, and mobile systems for palm oil operations at
-        SawitPRO. An X-ray, a drone photo of a plantation, and a stack of scanned weighbridge
-        documents turn out to be the same problem wearing different clothes: messy real-world data
-        that needs to become something a person can actually act on.
+      <p class="objective">
+        Building computer vision, LLM, and mobile/edge systems for palm oil operations at SawitPRO:
+        drone-based tree detection, on-device ripeness grading, and an LLM+RAG disease chatbot.
+        Background in CNNs and explainable AI from an undergraduate thesis on lung disease detection.
       </p>
+
       <div class="ctas">
         <a class="btn btn-primary" href="#projects">View Projects →</a>
         <a class="btn btn-ghost" href="https://github.com/wansfiyyah" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-ghost" href="mailto:wansofiyah233@gmail.com">Get in Touch</a>
+        <a class="btn btn-ghost" href="mailto:wansofiyah233@gmail.com">Email</a>
       </div>
 
       <div class="stats">
@@ -63,19 +63,13 @@
   <div class="wrap">
     <div class="section-head reveal"><span class="tag mono">01</span><h2>About</h2></div>
     <div class="about-grid">
-      <div class="reveal">
-        <p>I work at the intersection of computer vision, LLMs, and mobile/edge deployment, taking a
-          model from a training notebook to something that runs reliably in a plantation with patchy
-          internet, or a document pipeline that has to work on messy, real-world scans. At SawitPRO,
-          I develop CV and geospatial features on top of drone orthophoto data, build LLM-based
-          document extraction workflows, and prototype Android apps that put those models in the
-          hands of field teams.</p>
-        <p>Earlier, at PTPN IV, I coordinated data collection for a heavy equipment inventory system
-          across 13 plantation units. I care about shipping models that are honestly evaluated and
-          genuinely useful in the field, not just accurate on paper, and about explaining what a
-          model did and why, whether that's a Grad-CAM heatmap or a plain-language note for a
-          non-technical stakeholder.</p>
-      </div>
+      <ul class="reveal about-list">
+        <li>AI Engineer Intern at SawitPRO since Dec 2025, working on computer vision, geospatial
+          analysis, LLMs, and Android/edge deployment</li>
+        <li>Undergraduate in Informatics Engineering, UIN Sultan Syarif Kasim Riau (GPA 3.46/4.00)</li>
+        <li>Published first author, Journal of Artificial Intelligence and Software Engineering, 2025</li>
+        <li>Focus areas: computer vision, remote sensing/GIS, LLM+RAG, mobile/edge ML, explainable AI</li>
+      </ul>
       <div>
         <div class="skillbox reveal">
           <h3>ML / AI</h3>
@@ -119,20 +113,20 @@
 <section id="projects">
   <div class="wrap">
     <div class="section-head reveal"><span class="tag mono">02</span><h2>Projects</h2></div>
-    <p class="section-sub reveal">Five projects that span the range of what I do: computer vision,
-      geospatial analysis, LLMs, mobile/edge deployment, and applied statistics.</p>
 
     <article class="proj reveal">
       <div class="proj-top">
         <h3>Sawit Vision: Palm Tree Detection &amp; Analytics</h3>
         <span class="metric">acc 97.4%</span>
       </div>
-      <div class="meta">Computer Vision · SawitPRO, Dec 2025 - Present</div>
-      <p>This was a solo build within my work at SawitPRO: I owned the detection pipeline end to
-        end, from tiled inference on gigapixel drone orthophotos to the five analytics features
-        built on top of it. It's now cutting SLA by 90% and mandays cost by 36% for tree-counting
-        that used to be done by hand. The biggest lesson was realizing the detector architecture
-        mattered less than how I sliced and stitched the imagery back together.</p>
+      <div class="meta">Work Project · SawitPRO · Dec 2025 - Present</div>
+      <ul class="summary">
+        <li>Owned the detection pipeline end to end: tiled inference on high-resolution drone
+          orthophotos, extended into 5 downstream analytics features</li>
+        <li>Impact: cut SLA by 90% and mandays cost by 36% for tree-counting previously done manually</li>
+        <li>Learned: tiling, overlap, and cross-tile NMS mattered more than the detector architecture
+          for gigapixel imagery</li>
+      </ul>
       <ul class="chips">
         <li class="chip">Computer Vision</li><li class="chip">GIS</li>
         <li class="chip">Remote Sensing</li><li class="chip">Machine Learning</li>
@@ -141,14 +135,12 @@
       <div class="proj-gallery">
         <figure>
           <div class="proj-shot">
-            <span class="corner tl"></span><span class="corner br"></span>
             <img src="images/sawit-vision-app.png" alt="Sawit Vision desktop app interface">
           </div>
           <figcaption>desktop app interface</figcaption>
         </figure>
         <figure>
           <div class="proj-shot">
-            <span class="corner tl"></span><span class="corner br"></span>
             <img src="images/sawit-vision-detection.jpg" alt="Palm tree detection overlay on drone orthophoto">
           </div>
           <figcaption>detection overlay on drone orthophoto</figcaption>
@@ -161,18 +153,19 @@
         <h3>FFB Grader: Automated Ripeness Classification</h3>
         <span class="metric">recall 94%</span>
       </div>
-      <div class="meta">Mobile + Edge AI · Android, Kotlin</div>
-      <p>I built this Android app on my own at SawitPRO, from the on-device model integration to
-        the NFC data-transfer flow. It now lets field workers grade FFB ripeness on-site with zero
-        internet connection, at 94% recall. Deploying it taught me that a model's job isn't done
-        at training. I had to design around battery life, storage, and blocks with no signal at
-        all.</p>
+      <div class="meta">Work Project · SawitPRO · Android, Kotlin</div>
+      <ul class="summary">
+        <li>Built an offline-first Android app individually: on-device model integration, NFC
+          peer-to-peer data transfer, no internet required</li>
+        <li>Impact: field workers grade FFB ripeness on-site at 94% recall, zero connectivity needed</li>
+        <li>Learned: deployment constraints (battery, storage, no signal) shaped the design more than
+          the model itself</li>
+      </ul>
       <ul class="chips">
         <li class="chip">Android Development</li><li class="chip">Kotlin</li>
         <li class="chip">NFC</li>
       </ul>
-      <div class="proj-shot" style="height:210px; background:var(--chip-dark);">
-        <span class="corner tl"></span><span class="corner br"></span>
+      <div class="proj-shot" style="height:190px;">
         <img src="images/ffb-grader-result.jpg" alt="FFB Grader detection result with bounding boxes and confidence scores per bunch" style="object-fit:contain;">
       </div>
     </article>
@@ -182,17 +175,19 @@
         <h3>Dokter Sawit: AI Chatbot for Palm Disease Detection</h3>
         <span class="metric">LLM + RAG</span>
       </div>
-      <div class="meta">LLM / RAG · SawitPRO</div>
-      <p>At SawitPRO, I owned the image-alert pipeline behind this chatbot and contributed to its
-        web and Android apps. It's live on SawitPRO's site today, giving agronomists a faster first
-        read on disease symptoms from a single photo. Most of my effort went into the retrieval
-        side: structuring Bahasa Indonesia agronomy knowledge so the model would answer correctly,
-        not just fluently.</p>
+      <div class="meta">Work Project · SawitPRO</div>
+      <ul class="summary">
+        <li>Owned the image-alert pipeline for an LLM+RAG disease diagnosis chatbot, contributed to
+          web and Android companion apps</li>
+        <li>Impact: live on SawitPRO's public site, gives agronomists a faster first read on disease
+          symptoms from a photo</li>
+        <li>Learned: retrieval quality mattered more than the model. Most effort went into structuring
+          Bahasa Indonesia agronomy knowledge correctly</li>
+      </ul>
       <ul class="chips">
         <li class="chip">Chatbot</li><li class="chip">LLM + RAG</li>
       </ul>
-      <div class="proj-shot" style="height:210px; background:var(--chip-dark);">
-        <span class="corner tl"></span><span class="corner br"></span>
+      <div class="proj-shot" style="height:190px;">
         <img src="images/dokter-sawit-chatbot.png" alt="Dokter Sawit chatbot widget on the SawitPRO website" style="object-fit:contain;">
       </div>
     </article>
@@ -202,19 +197,18 @@
         <h3>Marketing Campaign Effectiveness: A/B Testing</h3>
         <span class="metric">stat. sig.</span>
       </div>
-      <div class="meta">Statistical Analysis · Individual Project</div>
-      <p>This was an individual project I ran on my own initiative, testing which marketing
-        campaign performed best for a simulated product launch using ANOVA and Bonferroni-corrected
-        t-tests. The result was a clear, statistically backed recommendation to run Campaign 1 or 3
-        over Campaign 2. It was also a good lesson in restraint: comparing multiple groups without
-        correction quietly inflates false positives, and this project showed me exactly where that
-        line is.</p>
+      <div class="meta">Individual Project · Statistical Analysis</div>
+      <ul class="summary">
+        <li>Tested campaign performance for a simulated product launch using ANOVA and
+          Bonferroni-corrected t-tests</li>
+        <li>Impact: clear, statistically backed recommendation (Campaign 1 or 3 over Campaign 2)</li>
+        <li>Learned: multiple comparisons without correction quietly inflate false positives</li>
+      </ul>
       <ul class="chips">
         <li class="chip">ANOVA</li><li class="chip">A/B Testing</li>
         <li class="chip">Excel</li>
       </ul>
-      <div class="proj-shot" style="height:210px; background:var(--chip-dark);">
-        <span class="corner tl"></span><span class="corner br"></span>
+      <div class="proj-shot" style="height:190px;">
         <img src="images/ab-test-insight.png" alt="Business insight and recommendation slide from the A/B test" style="object-fit:contain;">
       </div>
     </article>
@@ -224,17 +218,19 @@
         <h3>Lung Disease Detection: Undergraduate Thesis</h3>
         <span class="metric">acc 96.3%</span>
       </div>
-      <div class="meta">Explainable AI · UIN Sultan Syarif Kasim Riau</div>
-      <p>My undergraduate thesis, where I'm the primary author alongside faculty co-authors, later
-        published in the Journal of Artificial Intelligence and Software Engineering. I built a CNN
-        to detect lung disease from chest X-rays at 96.3% accuracy, then added Grad-CAM so it could
-        show its reasoning. That's where explainability stopped being an afterthought for me: a
-        model a doctor can't interrogate isn't very convincing, however accurate it is.</p>
+      <div class="meta">Individual Project · UIN Sultan Syarif Kasim Riau</div>
+      <ul class="summary">
+        <li>Primary author (with faculty co-authors): CNN to detect lung disease from chest X-rays,
+          Grad-CAM for explainability</li>
+        <li>Impact: published in the Journal of Artificial Intelligence and Software Engineering
+          (Vol. 5, No. 2, 2025)</li>
+        <li>Learned: a model a doctor can't interrogate isn't convincing, however accurate. This is
+          where explainability became the point, not an add-on</li>
+      </ul>
       <ul class="chips">
         <li class="chip">Explainable AI</li><li class="chip">CNN</li>
       </ul>
-      <div class="proj-shot" style="height:210px; background:var(--chip-dark);">
-        <span class="corner tl"></span><span class="corner br"></span>
+      <div class="proj-shot" style="height:190px;">
         <img src="images/thesis-paper.png" alt="Published paper: Lung Disease Detection Using Gradient-Weighted Class Activation Mapping, Journal of Artificial Intelligence and Software Engineering" style="object-fit:contain;">
       </div>
       <div class="proj-links">
@@ -344,13 +340,11 @@
     </article>
   </div>
 </section>
-
 </main>
 
 <footer>
   <div class="wrap">
-    <div class="frame reveal">
-      <div class="c2"></div>
+    <div class="reveal">
       <h2>Let's build something.</h2>
       <div class="foot-links">
         <a href="mailto:wansofiyah233@gmail.com">wansofiyah233@gmail.com</a>
