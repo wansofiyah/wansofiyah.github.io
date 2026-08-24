@@ -76,11 +76,43 @@ header.nav{
 .hero{padding:56px 0 40px;}
 .hero-line{font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--soft); margin-bottom:4px;}
 .hero-line .k{color:var(--accent);}
+
+.hero-badge-wrap{display:flex; justify-content:center; margin-bottom:2px;}
+.hero-badge{
+  width:64px; height:64px; border-radius:8px;
+  background:var(--surface-2); border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.15rem; color:var(--accent);
+}
+
+.welcome-bubble{
+  position:relative; max-width:520px; margin:14px auto 26px;
+  border:1px solid var(--line); border-radius:8px; padding:18px 22px;
+  text-align:center;
+}
+.bubble-arrow{
+  position:absolute; top:-7px; left:50%; transform:translateX(-50%) rotate(45deg);
+  width:12px; height:12px; background:var(--surface); border-left:1px solid var(--line); border-top:1px solid var(--line);
+}
+.welcome-line{font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.15rem; margin-bottom:10px;}
+.welcome-sub{font-size:0.9rem; color:#CFD3CE;}
+.welcome-sub .hl{color:var(--accent); font-weight:600;}
+
+.whoami-block{text-align:center; margin-bottom:26px;}
+.whoami-block .hero-line{justify-content:center; display:flex; gap:6px; margin-bottom:10px;}
 h1{
   font-family:'Space Grotesk', sans-serif; font-weight:600;
   font-size:clamp(1.7rem, 3.6vw, 2.1rem);
-  line-height:1.25; margin:14px 0 12px;
+  line-height:1.25; margin-bottom:8px;
 }
+h1 .deco{font-size:0.8em;}
+.role-line{font-family:'IBM Plex Mono', monospace; font-size:0.88rem; color:#CFD3CE; margin-bottom:4px;}
+.location-line{font-size:0.82rem; color:var(--soft); margin-bottom:18px;}
+.links-row{display:flex; gap:18px; flex-wrap:wrap; justify-content:center; align-items:center; font-family:'IBM Plex Mono', monospace; font-size:0.85rem;}
+.links-row a:not(.btn){border-bottom:1px solid var(--line);}
+.links-row a:not(.btn):hover{border-color:var(--accent); color:var(--accent);}
+.btn-cv{margin-left:4px;}
+
 .objective{font-size:0.96rem; color:#CFD3CE; max-width:620px; margin-bottom:22px;}
 .ctas{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px;}
 .btn{
@@ -98,6 +130,7 @@ h1{
 .stats{
   display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
   padding-top:20px; border-top:1px solid var(--line);
+
   font-family:'IBM Plex Mono', monospace;
 }
 @media (max-width:640px){ .stats{grid-template-columns:repeat(2,1fr); gap:18px;} }
