@@ -155,33 +155,7 @@ section{padding:36px 0; border-top:1px solid var(--line);}
 .tag-pill{background:var(--surface); border:1px solid var(--line); padding:5px 12px; font-size:0.76rem; color:#CFD3CE; font-family:'IBM Plex Mono', monospace;}
 
 /* ---------- project file browser ---------- */
-.term-sidebar{
-  min-width:190px; border-right:1px solid var(--line); padding-right:18px; margin-right:22px;
-}
-.term-sidebar-label{
-  font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--soft);
-  text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px;
-}
-.term-folder{
-  display:flex; align-items:center; gap:8px; width:100%;
-  background:none; border:none; border-left:2px solid transparent;
-  color:var(--soft); font-family:'IBM Plex Mono', monospace; font-size:0.82rem;
-  padding:7px 0 7px 10px; text-align:left; cursor:pointer;
-  transition:color .15s ease, border-color .15s ease;
-}
-.term-folder:hover{color:var(--ink);}
-.term-folder.active{color:var(--accent); border-left-color:var(--accent);}
-.folder-ico{color:var(--yellow); flex-shrink:0;}
-.term-folder.active .folder-ico{color:var(--accent);}
-
-.term-flex{display:flex; align-items:flex-start;}
-@media (max-width:620px){
-  .term-flex{flex-direction:column;}
-  .term-sidebar{border-right:none; border-bottom:1px solid var(--line); padding:0 0 16px; margin:0 0 16px; min-width:0; width:100%;}
-  .term-sidebar-nav{display:flex; flex-wrap:wrap; gap:4px 16px;}
-  .term-folder{width:auto; padding:4px 0;}
-}
-.term-main{flex:1; min-width:0;}
+.term-main{min-width:0;}
 
 .term-file{
   border:1px solid var(--line); border-radius:6px; background:var(--bg);
