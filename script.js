@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const els = document.querySelectorAll('.reveal');
 
   if (!('IntersectionObserver' in window)) {
-    // Fallback for older browsers: just show everything.
     els.forEach(el => el.classList.add('in'));
     return;
   }
